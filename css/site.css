@@ -1,0 +1,64 @@
+/* Baihaqi Studio: the same palette and fonts as the Legacy of Warden site (dark navy, gold, bronze) */
+@font-face{font-family:'DM Sans';src:url(../fonts/dmsans.woff2) format('woff2');font-weight:100 900;font-display:swap}
+:root{
+  --bg:#0c0a14;--panel:rgba(25,21,38,.82);--panel2:rgba(36,30,54,.9);--line:#3a3150;--line-gold:#6b5530;
+  --ink:#e9e7ef;--mute:#a59fb8;--gold:#d9ba78;--gold-hi:#f1d9a0;--bronze:#a8743c;
+  --serif:Georgia,'Times New Roman',serif;--sans:'DM Sans',system-ui,sans-serif;
+  --gut:16px;--max:1080px;--r:4px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;overflow-x:clip}
+body{margin:0;background:radial-gradient(ellipse at 50% 0%,#1d1730 0%,var(--bg) 60%) var(--bg);color:var(--ink);font:400 16px/1.6 var(--sans);overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:var(--gold)}
+h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:.01em;margin:0}
+h2{font-size:clamp(28px,6vw,40px);color:var(--gold-hi)}
+p{margin:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* Intro: the studio's name over a dim Moonhaven */
+.intro{position:relative;display:grid;align-content:start;justify-items:center;text-align:center;min-height:clamp(320px,52vw,600px);padding:clamp(40px,7vw,96px) var(--gut) 40px;overflow:hidden;isolation:isolate}
+.intro::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(12,10,20,.55) 0%,rgba(12,10,20,0) 38%,rgba(12,10,20,0) 72%,var(--bg) 100%),url(../img/banner.webp) center 60%/cover}
+.intro::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--line-gold) 20%,var(--gold) 50%,var(--line-gold) 80%,transparent)}
+.intro h1{font-size:clamp(42px,10vw,72px);line-height:1.05;background:linear-gradient(90deg,#f1d9a0 0%,#fff6dc 45%,#f1d9a0 55%,#d9ba78 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 3px 10px rgba(0,0,0,.9));animation:rise 1s cubic-bezier(.2,.8,.2,1) both,shine 7s 1.2s linear infinite}
+.intro p{color:#d8d3e4;margin-top:12px;font-size:17px;text-shadow:0 1px 8px #000;animation:rise 1s .2s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes shine{to{background-position:-220% 0}}
+@media (prefers-reduced-motion:reduce){.intro h1,.intro p{animation:none}}
+
+/* Sections */
+.sec{max-width:var(--max);margin:0 auto;padding:56px var(--gut) 8px}
+.sec-head{margin-bottom:22px}
+.sec-head h2::after{content:"";display:block;width:120px;height:1px;margin-top:10px;background:linear-gradient(90deg,var(--gold),transparent)}
+.fine{color:var(--mute);font-size:13px}
+
+/* Games: one tile per game, the whole tile links to the game's site */
+.games{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:16px}
+.game{display:flex;flex-direction:column;height:100%;background:var(--panel);border:1px solid var(--line-gold);color:var(--ink);text-decoration:none;box-shadow:0 14px 34px rgba(0,0,0,.4);transition:border-color .2s,transform .25s}
+.game:hover{border-color:var(--gold);transform:translateY(-2px)}
+.game-art{position:relative;display:grid;place-items:center;aspect-ratio:16/9;overflow:hidden;background:#000}
+.game-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.6);transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .4s}
+.game-logo{position:relative;width:76%;height:auto;filter:drop-shadow(0 8px 20px rgba(0,0,0,.7))}
+.game:hover .game-bg{transform:scale(1.05);filter:brightness(.72)}
+.game-body{display:flex;flex-direction:column;gap:10px;padding:16px 16px 18px;flex:1}
+.game-name{font-family:var(--serif);font-weight:700;font-size:22px;color:var(--gold-hi)}
+.game-tag{color:#d0cbdc;font-size:15px}
+.facts{display:flex;flex-wrap:wrap;gap:6px}
+.facts i{font-style:normal;padding:3px 9px;border:1px solid var(--line);background:rgba(19,16,30,.8);color:var(--mute);font-size:12px;font-weight:600;letter-spacing:.04em;border-radius:var(--r)}
+.game-go{margin-top:auto;padding-top:4px;color:var(--gold);font-weight:600;font-size:15px}
+.game-go::after{content:" ›";font-family:var(--serif)}
+.game:hover .game-go{color:var(--gold-hi)}
+
+/* Buttons (404 page) */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;margin:4px;border:1px solid var(--line-gold);background:rgba(25,21,38,.85);color:var(--gold-hi);font:600 15px var(--sans);text-decoration:none;border-radius:var(--r)}
+.btn-gold{background:linear-gradient(180deg,#e6c98a,#b8904a);color:#1c1408;border-color:#f1d9a0}
+
+/* Footer */
+.foot{max-width:var(--max);margin:56px auto 0;padding:24px var(--gut) calc(32px + env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;border-top:1px solid var(--line)}
+.foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px}
+.foot-links a{text-decoration:none}
+.foot-links a:hover{text-decoration:underline}
+
+/* 404 */
+.lost{min-height:70vh;display:grid;place-items:center;text-align:center;padding:48px var(--gut)}
+.lost p{color:var(--mute);margin:12px 0 22px}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fighterloo.github.io/sitemap.xml
