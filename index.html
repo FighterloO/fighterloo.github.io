@@ -23,7 +23,7 @@
 <link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="fonts/dmsans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site.css?v=202610303">
+<link rel="stylesheet" href="css/site.css?v=202610309">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -63,20 +63,43 @@
 <body>
 
 <header class="hero">
-  <img class="hero-art" src="img/banner.webp" alt="The heroes of Legacy of Warden facing a boss" width="1600" height="900" fetchpriority="high">
+  <video class="hero-art" src="media/moonhaven-loop.mp4" poster="img/moonhaven.webp" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
   <div class="hero-text">
-    <h1>Baihaqi Studio</h1>
+    <svg class="sword" viewBox="0 0 360 36" aria-hidden="true"><defs>
+      <linearGradient id="sw1-steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#d9d9d9"/><stop offset="1" stop-color="#8c8c8c"/></linearGradient>
+      <linearGradient id="sw1-shine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+      <clipPath id="sw1-blade"><path d="M80 12.5 330 14.5 357 18 330 21.5 80 23.5Z"/></clipPath></defs>
+      <g>
+      <path d="M4 18 10 12 16 18 10 24Z" fill="#f2f2f2"/><rect x="15" y="14.5" width="44" height="7" rx="2" fill="#2e2e2e"/>
+      <path d="M21 14.5v7M27 14.5v7M33 14.5v7M39 14.5v7M45 14.5v7M51 14.5v7" stroke="#8a8a8a" stroke-width="1.4"/>
+      <path d="M58 3h12l-4 7v16l4 7H58l4-7V10Z" fill="#fafafa"/><rect x="70" y="13.5" width="10" height="9" fill="#bdbdbd"/>
+      <path d="M80 12.5 330 14.5 357 18 330 21.5 80 23.5Z" fill="url(#sw1-steel)"/>
+      <path d="M84 18H300" stroke="#7a7a7a" stroke-width="1.6" stroke-linecap="round"/><path d="M80 12.5 330 14.5 357 18" fill="none" stroke="#fff" stroke-width=".8"/>
+      <g clip-path="url(#sw1-blade)"><rect class="glint" x="20" y="0" width="60" height="36" fill="url(#sw1-shine)"/></g></g></svg>
+    <h1><span class="mark-name">Baihaqi</span> <span class="mark-sub">Studio</span></h1>
+    <svg class="sword sword-r" viewBox="0 0 360 36" aria-hidden="true"><defs>
+      <linearGradient id="sw2-steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#d9d9d9"/><stop offset="1" stop-color="#8c8c8c"/></linearGradient>
+      <linearGradient id="sw2-shine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+      <clipPath id="sw2-blade"><path d="M80 12.5 330 14.5 357 18 330 21.5 80 23.5Z"/></clipPath></defs>
+      <g transform="matrix(-1 0 0 1 360 0)">
+      <path d="M4 18 10 12 16 18 10 24Z" fill="#f2f2f2"/><rect x="15" y="14.5" width="44" height="7" rx="2" fill="#2e2e2e"/>
+      <path d="M21 14.5v7M27 14.5v7M33 14.5v7M39 14.5v7M45 14.5v7M51 14.5v7" stroke="#8a8a8a" stroke-width="1.4"/>
+      <path d="M58 3h12l-4 7v16l4 7H58l4-7V10Z" fill="#fafafa"/><rect x="70" y="13.5" width="10" height="9" fill="#bdbdbd"/>
+      <path d="M80 12.5 330 14.5 357 18 330 21.5 80 23.5Z" fill="url(#sw2-steel)"/>
+      <path d="M84 18H300" stroke="#7a7a7a" stroke-width="1.6" stroke-linecap="round"/><path d="M80 12.5 330 14.5 357 18" fill="none" stroke="#fff" stroke-width=".8"/>
+      <g clip-path="url(#sw2-blade)"><rect class="glint" x="20" y="0" width="60" height="36" fill="url(#sw2-shine)"/></g></g></svg>
     <p>Indie games from Indonesia</p>
   </div>
 </header>
 
+<div class="lower">
 <main>
   <section class="games-sec" id="games" aria-labelledby="games-title">
     <h2 class="label" id="games-title">Games</h2>
     <ul class="games">
       <li class="game">
         <a class="game-art" href="https://fighterloo.github.io/legacy-of-warden-site/" tabindex="-1" aria-hidden="true">
-          <img class="game-bg" src="img/moonhaven.webp" alt="" width="1280" height="720" loading="lazy">
+          <img class="game-bg" src="img/game-art.webp" alt="" width="1600" height="928" loading="lazy">
           <img class="game-logo" src="img/game-logo.webp" alt="" width="1200" height="587" loading="lazy">
         </a>
         <div class="game-body">
@@ -105,6 +128,7 @@
   </p>
   <p class="fine">© 2026 Baihaqi Studio · Font: DM Sans (<a href="fonts/dmsans-OFL.txt">OFL</a>)</p>
 </footer>
+</div>
 
 </body>
 </html>

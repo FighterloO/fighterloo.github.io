@@ -14,20 +14,34 @@ a{color:var(--gold)}
 h1,h2,h3,p{margin:0}
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
-/* Hero: the YouTube banner with the studio name set like the banner's own title */
-.hero{position:relative;height:clamp(400px,50vw,640px);overflow:hidden;isolation:isolate}
-.hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 58%;z-index:-2}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(12,10,20,.5) 0%,rgba(12,10,20,0) 34%,rgba(12,10,20,0) 62%,rgba(12,10,20,.75) 86%,var(--bg) 100%)}
-.hero-text{position:absolute;left:0;right:0;top:clamp(36px,7vw,92px);padding:0 var(--gut);text-align:center;animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
-.hero h1{font:800 clamp(30px,6.4vw,68px)/1.05 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--cream);padding-left:.16em;text-shadow:0 3px 0 #2a1650,0 0 28px rgba(123,63,214,.85),0 2px 14px rgba(0,0,0,.8)}
-.hero h1::after{content:"";display:block;width:min(560px,78%);height:1px;margin:clamp(10px,1.6vw,18px) auto 0;background:linear-gradient(90deg,transparent,rgba(251,241,216,.85),transparent)}
-.hero-text p{margin-top:clamp(8px,1.4vw,14px);font-size:clamp(11px,1.5vw,15px);font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#e4dcf5;padding-left:.3em;text-shadow:0 1px 8px rgba(0,0,0,.9)}
-@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.hero-text{animation:none}}
+/* Hero: Moonhaven at night (the game site's loop, leaves drifting) under the game's studio splash (transitions.js boot,
+   boot.css): a sword slides in from the left above BAIHAQI, one from the right below it, then a glint runs down both blades */
+.hero{position:relative;height:clamp(420px,50vw,640px);overflow:hidden;isolation:isolate;background:#0c0a14 url(../img/moonhaven.webp) 50% 40%/cover}
+.hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;z-index:-2;filter:brightness(.62) saturate(.9)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse 58% 40% at 50% 27%,rgba(8,7,14,.62),transparent 78%),linear-gradient(180deg,rgba(12,10,20,.55) 0%,rgba(12,10,20,.15) 45%,rgba(12,10,20,0) 54%,rgba(12,10,20,.7) 72%,var(--bg) 88%)}
+.hero-text{position:absolute;left:0;right:0;top:clamp(28px,5vw,72px);padding:0 var(--gut);display:flex;flex-direction:column;align-items:center;text-align:center}
+.sword{display:block;width:min(84vw,480px);height:auto;opacity:0;transform:translateX(-62vw);animation:slide 1.9s .2s cubic-bezier(.16,.84,.24,1) forwards;filter:drop-shadow(0 4px 10px rgba(0,0,0,.75))}
+.sword-r{transform:translateX(62vw);animation-delay:.45s}
+.hero h1+.sword{margin-top:clamp(8px,1.4vw,14px)}
+.hero-text>.sword:first-child{margin-bottom:clamp(8px,1.4vw,14px)}
+.glint{animation:glint 1.6s 2.3s ease-in-out forwards}
+.hero h1{display:flex;flex-direction:column;align-items:center;gap:clamp(6px,1vw,10px)}
+.mark-name{font:700 clamp(30px,5.6vw,60px)/1 var(--serif);letter-spacing:.34em;padding-left:.34em;text-transform:uppercase;color:#f4f4f4;white-space:nowrap;text-shadow:0 0 18px rgba(255,255,255,.18),0 2px 12px rgba(0,0,0,.95),0 0 2px #000;opacity:0;transform:translateY(8px);animation:rise 1.1s 1.3s ease-out forwards}
+.mark-sub{font:600 clamp(11px,1.4vw,15px)/1 var(--sans);letter-spacing:.9em;padding-left:.9em;text-transform:uppercase;color:#bdbdbd;text-shadow:0 1px 8px #000;opacity:0;animation:fade 1s 1.8s forwards}
+.hero-text p{margin-top:clamp(14px,2vw,22px);font-size:clamp(11px,1.3vw,14px);font-weight:600;letter-spacing:.3em;padding-left:.3em;text-transform:uppercase;color:var(--gold-hi);text-shadow:0 1px 8px #000,0 0 2px #000;opacity:0;animation:fade 1s 2.4s forwards}
+@keyframes slide{to{opacity:1;transform:none}}
+@keyframes glint{to{transform:translateX(340px)}}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes fade{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.sword,.mark-name,.mark-sub,.hero-text p{animation:none;opacity:1;transform:none}.glint{animation:none}.hero-art{display:none}}
+
+/* Everything under the hero sits on the YouTube banner (heroes against a boss), faded in from the page colour */
+.lower{position:relative;isolation:isolate;padding-bottom:1px}
+.lower::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--bg) 0%,rgba(12,10,20,.8) 36%,rgba(12,10,20,.78) 62%,rgba(12,10,20,.92) 100%),url(../img/banner.webp) 50% 62%/cover no-repeat;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 220px);mask-image:linear-gradient(180deg,transparent 0,#000 220px)}
 
 /* Games: a list; a lone game gets the wide card, more games fall into a grid */
 .games-sec{position:relative;max-width:var(--max);margin:clamp(-96px,-6vw,-40px) auto 0;padding:0 var(--gut)}
-.label{display:flex;align-items:center;gap:14px;margin-bottom:14px;font:700 13px var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.label{display:flex;align-items:center;gap:14px;margin-bottom:14px;font:700 13px var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--gold);text-shadow:0 1px 6px #000}
 .label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line-gold),transparent)}
 .games{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:18px}
 .game{display:flex;flex-direction:column;background:linear-gradient(160deg,#1d1736,var(--panel) 60%);border:1px solid var(--line-gold);border-radius:var(--r);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.4)}
@@ -35,12 +49,13 @@ h1,h2,h3,p{margin:0}
 @media (min-width:820px){.games .game:only-child{display:grid;grid-template-columns:1.35fr 1fr}}
 .game-art{position:relative;display:grid;place-items:center;aspect-ratio:16/9;overflow:hidden;background:#000}
 @media (min-width:820px){.game:only-child .game-art{aspect-ratio:auto;min-height:240px}}
-.game-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.62);transition:transform 1.4s cubic-bezier(.2,.8,.2,1),filter .4s}
+.game-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;filter:brightness(.62);transition:transform 1.4s cubic-bezier(.2,.8,.2,1),filter .4s}
 .game-logo{position:relative;width:74%;height:auto;filter:drop-shadow(0 10px 22px rgba(0,0,0,.75));transition:transform .6s cubic-bezier(.2,.8,.2,1)}
 .game:hover .game-bg{transform:scale(1.05);filter:brightness(.74)}
 .game:hover .game-logo{transform:scale(1.03)}
 .game-body{display:flex;flex-direction:column;gap:12px;padding:clamp(18px,3vw,32px)}
-.game h3{font:700 clamp(24px,3.2vw,32px)/1.15 var(--serif);color:var(--gold-hi)}
+.game-body{text-shadow:0 1px 4px rgba(0,0,0,.85)}
+.game h3{font:700 clamp(24px,3.2vw,32px)/1.15 var(--serif);color:var(--gold-hi);text-shadow:0 2px 10px #000}
 .game h3 a{color:inherit;text-decoration:none}
 .game-tag{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--gold)}
 .game-body>p:not(.game-tag){color:#cfc9dc;font-size:15px}
@@ -56,13 +71,14 @@ h1,h2,h3,p{margin:0}
 .btn-gold:hover{background:linear-gradient(180deg,#f1d9a0,#c79d55)}
 
 /* Footer */
-.foot{max-width:var(--max);margin:72px auto 0;padding:28px var(--gut) calc(32px + env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;border-top:1px solid var(--line)}
+.foot{max-width:var(--max);margin:clamp(72px,12vw,180px) auto 0;padding:28px var(--gut) calc(32px + env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;border-top:1px solid rgba(217,186,120,.25)}
 .foot img{width:56px;height:56px;border-radius:12px;border:1px solid var(--line-gold)}
 .foot-name{font:700 13px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--cream);margin-top:4px}
+.foot{text-shadow:0 1px 6px #000}
 .foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-top:4px;font-size:15px}
 .foot-links a{text-decoration:none;overflow-wrap:anywhere}
 .foot-links a:hover{text-decoration:underline}
-.fine{color:var(--mute);font-size:13px;margin-top:4px}
+.fine{color:#bdb6cf;font-size:13px;margin-top:4px}
 
 /* 404 */
 .lost{min-height:70vh;display:grid;place-items:center;text-align:center;padding:48px var(--gut)}

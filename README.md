@@ -4,11 +4,15 @@ The home page of Baihaqi Studio at https://fighterloo.github.io/ (GitHub user si
 GitHub Pages serves `main` from the root.
 
 ```
-index.html        the page (all text lives here), with WebSite + Organization JSON-LD
+index.html        the page (all text lives here), with WebSite + Organization JSON-LD; the header's two swords are
+                  the game's studio splash (src/game/transitions.js + src/styles/boot.css in the game repo)
 404.html          not-found page (noindex)
 css/site.css      styles: the game site's palette (dark navy, gold, bronze) and font
-img/banner.webp   the YouTube channel banner without its text (legacy of warden preview/youtube/raw/yt-banner-3d.png)
-img/              game tile art copied from legacy-of-warden-site (Moonhaven, logo); share.jpg (1200x630) made from the banner
+media/moonhaven-loop.mp4   header video: Moonhaven at night, leaves drifting (the game site's media/hero-loop.mp4, H.264 yuv420p)
+img/moonhaven.webp         its poster, also shown for reduced motion
+img/banner.webp   background under the header: the YouTube banner without its text (preview/youtube/raw/yt-banner-3d.png)
+img/game-art.webp, img/game-logo.webp   the Legacy of Warden card (game site img/bg/release.webp, img/art/title-logo.webp)
+img/share.jpg     1200x630 share image, made from the banner
 favicon.ico, favicon-48x48.png   the Assassin's head (legacy of warden preview/youtube/the assassin.png, cropped)
 favicon-192x192.png, apple-touch-icon.png, img/logo.png   the whole Assassin picture (logo.png = Organization logo)
 sitemap.xml, robots.txt
