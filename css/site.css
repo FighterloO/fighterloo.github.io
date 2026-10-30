@@ -67,7 +67,7 @@ h1,h2,h3,p{margin:0}
 /* Buttons: 1 px edges, no circles */
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border:1px solid var(--line-gold);background:rgba(12,10,20,.6);color:var(--gold-hi);font:600 15px var(--sans);text-decoration:none;border-radius:4px;touch-action:manipulation;transition:background .15s,border-color .15s}
 .btn:hover{border-color:var(--gold);background:rgba(36,30,54,.9)}
-.btn-gold{background:linear-gradient(180deg,#e6c98a,#b8904a);color:#1c1408;border-color:#f1d9a0}
+.btn-gold{background:linear-gradient(180deg,#e6c98a,#b8904a);color:#1c1408;border-color:#f1d9a0;text-shadow:none}
 .btn-gold:hover{background:linear-gradient(180deg,#f1d9a0,#c79d55)}
 
 /* Footer */
