@@ -23,7 +23,7 @@
 <link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="fonts/dmsans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site.css?v=202610301">
+<link rel="stylesheet" href="css/site.css?v=202610303">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -62,42 +62,44 @@
 </head>
 <body>
 
-<header class="intro">
-  <h1>Baihaqi Studio</h1>
-  <p>A solo indie game studio from Indonesia.</p>
+<header class="hero">
+  <img class="hero-art" src="img/banner.webp" alt="The heroes of Legacy of Warden facing a boss" width="1600" height="900" fetchpriority="high">
+  <div class="hero-text">
+    <h1>Baihaqi Studio</h1>
+    <p>Indie games from Indonesia</p>
+  </div>
 </header>
 
 <main>
-  <section class="sec" id="games">
-    <div class="sec-head">
-      <h2>Games</h2>
-    </div>
-
+  <section class="games-sec" id="games" aria-labelledby="games-title">
+    <h2 class="label" id="games-title">Games</h2>
     <ul class="games">
-      <li>
-        <a class="game" href="https://fighterloo.github.io/legacy-of-warden-site/">
-          <span class="game-art">
-            <img class="game-bg" src="img/moonhaven.webp" alt="" width="1280" height="720">
-            <img class="game-logo" src="img/game-logo.webp" alt="Legacy of Warden" width="1200" height="587">
-          </span>
-          <span class="game-body">
-            <span class="game-name">Legacy of Warden</span>
-            <span class="game-tag">Plan the ritual. Break the Guardian. A dark fantasy roguelite of dice, runes and spell rituals.</span>
-            <span class="facts"><i>Android</i><i>PC</i><i>Coming soon to Google Play</i></span>
-            <span class="game-go">Visit the game's site</span>
-          </span>
+      <li class="game">
+        <a class="game-art" href="https://fighterloo.github.io/legacy-of-warden-site/" tabindex="-1" aria-hidden="true">
+          <img class="game-bg" src="img/moonhaven.webp" alt="" width="1280" height="720" loading="lazy">
+          <img class="game-logo" src="img/game-logo.webp" alt="" width="1200" height="587" loading="lazy">
         </a>
+        <div class="game-body">
+          <h3><a href="https://fighterloo.github.io/legacy-of-warden-site/">Legacy of Warden</a></h3>
+          <p class="game-tag">Plan the ritual. Break the Guardian.</p>
+          <p>A dark fantasy roguelite of dice, runes and spell rituals. Roll across the planes, build your ritual and break each Guardian.</p>
+          <ul class="facts"><li>Android</li><li>PC</li><li>Coming soon to Google Play</li></ul>
+          <div class="game-cta">
+            <a class="btn btn-gold" href="https://fighterloo.github.io/legacy-of-warden-site/">Visit the game's site</a>
+            <a class="btn" href="https://www.youtube.com/watch?v=bfzNsBtPULc" target="_blank" rel="noopener">Watch the trailer</a>
+          </div>
+        </div>
       </li>
     </ul>
   </section>
 </main>
 
 <footer class="foot">
+  <img src="img/logo.png" alt="" width="56" height="56" loading="lazy">
+  <p class="foot-name">Baihaqi Studio</p>
   <p class="foot-links">
     <a href="mailto:supeersaiyan15@gmail.com">supeersaiyan15@gmail.com</a>
     <a href="https://www.youtube.com/@baihaqimahbub15" target="_blank" rel="noopener me">YouTube</a>
-  </p>
-  <p class="foot-links">
     <a href="https://fighterloo.github.io/legacy-of-warden-site/privacy.html">Privacy Policy</a>
     <a href="https://fighterloo.github.io/legacy-of-warden-site/terms.html">Terms of Use</a>
   </p>
