@@ -25,3 +25,7 @@ Preview locally: `python -m http.server 8766`, then open http://localhost:8766/.
 After changing `css/site.css`, bump the `?v=` number on its link in `index.html` and `404.html`.
 A new game = a new `<li>` in `.games` in `index.html`.
 When Google Play goes live, change the "Coming soon to Google Play" chip in `index.html`.
+
+## Search Console
+
+`google4adee214d00288e8.html` at the root verifies the Search Console property for https://fighterloo.github.io/. Never delete it.
