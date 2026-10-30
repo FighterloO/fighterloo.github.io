@@ -15,7 +15,7 @@ img/game-art.webp, img/game-logo.webp   the Legacy of Warden card (game site img
 img/share.jpg     1200x630 share image, made from the banner
 favicon.ico, favicon-48x48.png   the Assassin's head (legacy of warden preview/youtube/the assassin.png, cropped)
 favicon-192x192.png, apple-touch-icon.png, img/logo.png   the whole Assassin picture (logo.png = Organization logo)
-sitemap.xml, robots.txt
+sitemap.xml       the studio page plus the game site's 5 pages (same host); robots.txt points to it
 ```
 
 The game has its own site: https://fighterloo.github.io/legacy-of-warden-site/ (repo FighterloO/legacy-of-warden-site),
