@@ -9,8 +9,8 @@ index.html        the page (all text lives here), with WebSite + Organization JS
 css/site.css      styles: the game site's palette (dark navy, gold, bronze) and font
 img/banner.webp   the YouTube channel banner without its text (legacy of warden preview/youtube/raw/yt-banner-3d.png)
 img/              game tile art copied from legacy-of-warden-site (Moonhaven, logo); share.jpg (1200x630) made from the banner
-favicon.ico, favicon-48x48.png   the YouTube avatar's head (youtube-profile-1024.png, cropped)
-favicon-192x192.png, apple-touch-icon.png, img/logo.png   the whole YouTube avatar (logo.png = Organization logo)
+favicon.ico, favicon-48x48.png   the Assassin's head (legacy of warden preview/youtube/the assassin.png, cropped)
+favicon-192x192.png, apple-touch-icon.png, img/logo.png   the whole Assassin picture (logo.png = Organization logo)
 sitemap.xml, robots.txt
 ```
 
