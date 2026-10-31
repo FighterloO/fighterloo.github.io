@@ -35,6 +35,15 @@ h1,h2,h3,p{margin:0}
 @keyframes fade{to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.sword,.mark-name,.mark-sub,.hero-text p{animation:none;opacity:1;transform:none}.glint{animation:none}.hero-art{display:none}}
 
+/* The header fills the screen (user picked layout A, 31 Oct 2026), the splash sits in its middle over the town, an arrow points down to the games */
+.hero.lay-a{height:100vh;height:100svh;min-height:520px;max-height:980px}
+.lay-a .hero-text{top:46%;transform:translateY(-50%)}
+.lay-a::after{background:radial-gradient(ellipse 60% 38% at 50% 46%,rgba(8,7,14,.6),transparent 78%),linear-gradient(180deg,rgba(12,10,20,.45) 0%,rgba(12,10,20,.1) 30%,rgba(12,10,20,.1) 62%,rgba(12,10,20,.75) 82%,var(--bg) 94%)}
+/* Down arrow to the games */
+.lay-a .hero-down{display:block;position:absolute;left:50%;bottom:clamp(110px,14vh,150px);width:22px;height:22px;margin-left:-11px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(45deg);opacity:0;animation:fade .8s 2.8s forwards,bob 2s 3.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(5px,5px)}}
+@media (prefers-reduced-motion:reduce){.lay-a .hero-down{animation:none;opacity:1}}
+
 /* Everything under the hero sits on the YouTube banner (heroes against a boss), faded in from the page colour */
 .lower{position:relative;isolation:isolate;padding-bottom:1px}
 .lower::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--bg) 0%,rgba(12,10,20,.8) 36%,rgba(12,10,20,.78) 62%,rgba(12,10,20,.92) 100%),url(../img/banner.webp) 50% 62%/cover no-repeat;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 220px);mask-image:linear-gradient(180deg,transparent 0,#000 220px)}
