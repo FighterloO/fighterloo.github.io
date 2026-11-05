@@ -16,8 +16,8 @@ h1,h2,h3,p{margin:0}
 
 /* Hero: Moonhaven at night (the game site's loop, leaves drifting) under the game's studio splash (transitions.js boot,
    boot.css): a sword slides in from the left above BAIHAQI, one from the right below it, then a glint runs down both blades */
-.hero{position:relative;height:clamp(420px,50vw,640px);overflow:hidden;isolation:isolate;background:#0c0a14 url(../img/moonhaven.webp) 50% 40%/cover}
-.hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;z-index:-2;filter:brightness(.62) saturate(.9)}
+.hero{position:relative;height:clamp(420px,50vw,640px);overflow:hidden;isolation:isolate;background:#0c0a14 url(../img/head-warden-1.webp) 50% 50%/cover}
+.hero-art{position:absolute;inset:-6px;width:calc(100% + 12px);height:calc(100% + 12px);object-fit:cover;object-position:50% 40%;z-index:-2;filter:brightness(.56) saturate(.9) blur(1.5px)}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse 58% 40% at 50% 27%,rgba(8,7,14,.62),transparent 78%),linear-gradient(180deg,rgba(12,10,20,.55) 0%,rgba(12,10,20,.15) 45%,rgba(12,10,20,0) 54%,rgba(12,10,20,.7) 72%,var(--bg) 88%)}
 .hero-text{position:absolute;left:0;right:0;top:clamp(28px,5vw,72px);padding:0 var(--gut);display:flex;flex-direction:column;align-items:center;text-align:center}
 .sword{display:block;width:min(84vw,480px);height:auto;opacity:0;transform:translateX(-62vw);animation:slide 1.9s .2s cubic-bezier(.16,.84,.24,1) forwards;filter:drop-shadow(0 4px 10px rgba(0,0,0,.75))}
@@ -30,6 +30,10 @@ h1,h2,h3,p{margin:0}
 .mark-sub{font:600 clamp(11px,1.4vw,15px)/1 var(--sans);letter-spacing:.9em;padding-left:.9em;text-transform:uppercase;color:#bdbdbd;text-shadow:0 1px 8px #000;opacity:0;animation:fade 1s 1.8s forwards}
 .hero-text p{margin-top:clamp(14px,2vw,22px);font-size:clamp(11px,1.3vw,14px);font-weight:600;letter-spacing:.3em;padding-left:.3em;text-transform:uppercase;color:var(--gold-hi);text-shadow:0 1px 8px #000,0 0 2px #000;opacity:0;animation:fade 1s 2.4s forwards}
 @keyframes slide{to{opacity:1;transform:none}}
+/* Behind the splash, the studio's worlds take turns (user, 5 Nov 2026): Legacy of Warden, Next Tower, Warden, Tower; 8 s each, a slow push in */
+.slides{overflow:hidden}
+.slides i{position:absolute;inset:0;background:50% 50%/cover no-repeat;opacity:0;animation:show 32s calc(var(--i) * 8s) infinite linear}
+@keyframes show{0%{opacity:0;transform:scale(1)}6%{opacity:1}25%{opacity:1}31%{opacity:0;transform:scale(1.07)}100%{opacity:0;transform:scale(1.07)}}
 @keyframes glint{to{transform:translateX(340px)}}
 @keyframes rise{to{opacity:1;transform:none}}
 @keyframes fade{to{opacity:1}}

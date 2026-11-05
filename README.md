@@ -8,10 +8,11 @@ index.html        the page (all text lives here), with WebSite + Organization JS
                   the game's studio splash (src/game/transitions.js + src/styles/boot.css in the game repo)
 404.html          not-found page (noindex)
 css/site.css      styles: the game site's palette (dark navy, gold, bronze) and font
-media/moonhaven-loop.mp4   header video: Moonhaven at night, leaves drifting (the game site's media/hero-loop.mp4, H.264 yuv420p)
-img/moonhaven.webp         its poster, also shown for reduced motion
+media/moonhaven-loop.mp4   Moonhaven at night, leaves drifting (the game site's media/hero-loop.mp4, H.264 yuv420p): the Legacy of Warden card's background
+img/moonhaven.webp         its poster
+img/head-*.webp            the header: the studio's worlds take turns behind the splash (warden-1/2: the game site's img/bg/features, planes; tower-1/2: Next Tower's town and a desert battle)
 img/banner.webp   background under the header: the YouTube banner without its text (preview/youtube/raw/yt-banner-3d.png)
-img/game-art.webp, img/game-logo.webp   the Legacy of Warden card (game site img/bg/release.webp, img/art/title-logo.webp)
+img/game-logo.webp         the Legacy of Warden card's logo (game site img/art/title-logo.webp)
 img/nt-art.webp, img/nt-logo.webp       the Next Tower card (a Plane 2 battle capture; the title in Silkscreen, transparent)
 img/share.jpg     1200x630 share image, made from the banner
 favicon.ico, favicon-48x48.png   the Assassin's head (legacy of warden preview/youtube/the assassin.png, cropped)
