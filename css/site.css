@@ -17,7 +17,7 @@ h1,h2,h3,p{margin:0}
 /* Hero: Moonhaven at night (the game site's loop, leaves drifting) under the game's studio splash (transitions.js boot,
    boot.css): a sword slides in from the left above BAIHAQI, one from the right below it, then a glint runs down both blades */
 .hero{position:relative;height:clamp(420px,50vw,640px);overflow:hidden;isolation:isolate;background:#0c0a14 url(../img/head-warden-1.webp) 50% 50%/cover}
-.hero-art{position:absolute;inset:-6px;width:calc(100% + 12px);height:calc(100% + 12px);object-fit:cover;object-position:50% 40%;z-index:-2;filter:brightness(.56) saturate(.9) blur(1.5px)}
+.hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;z-index:-2}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse 58% 40% at 50% 27%,rgba(8,7,14,.62),transparent 78%),linear-gradient(180deg,rgba(12,10,20,.55) 0%,rgba(12,10,20,.15) 45%,rgba(12,10,20,0) 54%,rgba(12,10,20,.7) 72%,var(--bg) 88%)}
 .hero-text{position:absolute;left:0;right:0;top:clamp(28px,5vw,72px);padding:0 var(--gut);display:flex;flex-direction:column;align-items:center;text-align:center}
 .sword{display:block;width:min(84vw,480px);height:auto;opacity:0;transform:translateX(-62vw);animation:slide 1.9s .2s cubic-bezier(.16,.84,.24,1) forwards;filter:drop-shadow(0 4px 10px rgba(0,0,0,.75))}
@@ -32,7 +32,8 @@ h1,h2,h3,p{margin:0}
 @keyframes slide{to{opacity:1;transform:none}}
 /* Behind the splash, the studio's worlds take turns (user, 5 Nov 2026): Legacy of Warden, Next Tower, Warden, Tower; 8 s each, a slow push in */
 .slides{overflow:hidden}
-.slides i{position:absolute;inset:0;background:50% 50%/cover no-repeat;opacity:0;animation:show 32s calc(var(--i) * 8s) infinite linear}
+/* the pictures come dimmed and softened in the files (no live filter: it made the page lag) */
+.slides i{position:absolute;inset:0;background:50% 50%/cover no-repeat;opacity:0;will-change:opacity,transform;animation:show 32s calc(var(--i) * 8s) infinite linear}
 @keyframes show{0%{opacity:0;transform:scale(1)}6%{opacity:1}25%{opacity:1}31%{opacity:0;transform:scale(1.07)}100%{opacity:0;transform:scale(1.07)}}
 @keyframes glint{to{transform:translateX(340px)}}
 @keyframes rise{to{opacity:1;transform:none}}
@@ -42,7 +43,12 @@ h1,h2,h3,p{margin:0}
 /* The header fills the screen (user picked layout A, 31 Oct 2026), the splash sits in its middle over the town, an arrow points down to the games */
 .hero.lay-a{height:100vh;height:100svh;min-height:520px;max-height:980px}
 .lay-a .hero-text{top:46%;transform:translateY(-50%)}
-.lay-a::after{background:radial-gradient(ellipse 60% 38% at 50% 46%,rgba(8,7,14,.6),transparent 78%),linear-gradient(180deg,rgba(12,10,20,.45) 0%,rgba(12,10,20,.1) 30%,rgba(12,10,20,.1) 62%,rgba(12,10,20,.75) 82%,var(--bg) 94%)}
+.lay-a::after{background:radial-gradient(ellipse 62% 40% at 50% 46%,rgba(8,7,14,.74),transparent 80%),linear-gradient(180deg,rgba(12,10,20,.45) 0%,rgba(12,10,20,.1) 30%,rgba(12,10,20,.1) 62%,rgba(12,10,20,.75) 82%,var(--bg) 94%)}
+/* Shadows so the splash reads over any of the header pictures; the tag line bigger (user, 5 Nov 2026) */
+.mark-name{text-shadow:0 0 18px rgba(255,255,255,.16),0 3px 0 #000,0 4px 16px rgba(0,0,0,.95),0 0 34px rgba(0,0,0,.85)}
+.mark-sub{font-size:clamp(12px,1.6vw,17px);color:#e2e2e2;text-shadow:0 2px 0 #000,0 0 12px rgba(0,0,0,.95)}
+.hero-text p{font-size:clamp(15px,2vw,21px);letter-spacing:.24em;padding-left:.24em;text-shadow:0 2px 0 #000,0 0 14px rgba(0,0,0,.95),0 0 3px #000}
+.sword{filter:drop-shadow(0 4px 10px rgba(0,0,0,.9)) drop-shadow(0 0 3px #000)}
 /* Down arrow to the games */
 .lay-a .hero-down{display:block;position:absolute;left:50%;bottom:clamp(110px,14vh,150px);width:22px;height:22px;margin-left:-11px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(45deg);opacity:0;animation:fade .8s 2.8s forwards,bob 2s 3.6s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(5px,5px)}}
@@ -65,6 +71,12 @@ h1,h2,h3,p{margin:0}
 .game-logo{position:relative;width:74%;height:auto;filter:drop-shadow(0 10px 22px rgba(0,0,0,.75));transition:transform .6s cubic-bezier(.2,.8,.2,1)}
 .game:hover .game-bg{transform:scale(1.05);filter:brightness(.74)}
 .game:hover .game-logo{transform:scale(1.03)}
+/* a video background: dimmed by an overlay, not a filter (a filter re-renders every frame) */
+video.game-bg{filter:none}
+.game:hover video.game-bg{filter:none}
+.game-art:has(video)::before{content:"";position:absolute;inset:0;z-index:1;background:rgba(6,5,12,.4);transition:background .4s;pointer-events:none}
+.game:hover .game-art:has(video)::before{background:rgba(6,5,12,.28)}
+.game-art:has(video) .game-logo{z-index:2}
 .game-body{display:flex;flex-direction:column;gap:12px;padding:clamp(18px,3vw,32px)}
 .game-body{text-shadow:0 1px 4px rgba(0,0,0,.85)}
 .game h3{font:700 clamp(24px,3.2vw,32px)/1.15 var(--serif);color:var(--gold-hi);text-shadow:0 2px 10px #000}
