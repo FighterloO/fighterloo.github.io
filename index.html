@@ -18,12 +18,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Baihaqi Studio">
 <meta name="twitter:image" content="https://fighterloo.github.io/img/share.jpg">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48">
-<link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96">
-<link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
+<link rel="icon" href="/favicon.ico?v=2" sizes="any">
+<link rel="icon" href="/favicon-48x48.png?v=2" type="image/png" sizes="48x48">
+<link rel="icon" href="/favicon-96x96.png?v=2" type="image/png" sizes="96x96">
+<link rel="icon" href="/favicon-192x192.png?v=2" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<link rel="manifest" href="/site.webmanifest?v=2">
 <link rel="preload" href="fonts/dmsans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/site.css?v=202611054">
 <script type="application/ld+json">
@@ -112,7 +112,7 @@
     <ul class="games">
       <li class="game">
         <a class="game-art" href="https://fighterloo.github.io/legacy-of-warden-site/" tabindex="-1" aria-hidden="true">
-          <video class="game-bg" src="media/moonhaven-loop.mp4" poster="img/moonhaven.webp" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+          <video class="game-bg" src="media/moonhaven-loop.mp4" poster="img/moonhaven.webp" muted loop playsinline preload="metadata" aria-hidden="true" data-loop></video>
           <img class="game-logo" src="img/game-logo.webp" alt="" width="1200" height="587" loading="lazy">
         </a>
         <div class="game-body">
@@ -128,7 +128,7 @@
       </li>
       <li class="game">
         <a class="game-art" href="https://fighterloo.github.io/next-tower-site/" tabindex="-1" aria-hidden="true">
-          <video class="game-bg" src="media/nexttower-loop.mp4" poster="img/nexttower-poster.webp" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+          <video class="game-bg" src="media/nexttower-loop.mp4" poster="img/nexttower-poster.webp" muted loop playsinline preload="metadata" aria-hidden="true" data-loop></video>
           <img class="game-logo" src="img/nt-logo.webp?v=2" alt="" width="1200" height="246" loading="lazy">
         </a>
         <div class="game-body">
@@ -159,5 +159,29 @@
 </footer>
 </div>
 
+<script>
+/* Card videos: each plays only while its card is on screen, and both rest while the page scrolls (two videos decoding
+   during a scroll made it stutter, 14 Nov 2026); they carry on 200 ms after the scroll stops. */
+(function () {
+  var vids = [].slice.call(document.querySelectorAll('video[data-loop]'));
+  if (!vids.length || !('IntersectionObserver' in window)) { vids.forEach(function (v) { v.play().catch(function () {}); }); return; }
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var seen = new Map(), scrolling = false, idle = null;
+  function sync() {
+    vids.forEach(function (v) {
+      if (seen.get(v) && !scrolling && !document.hidden) { if (v.paused) v.play().catch(function () {}); }
+      else if (!v.paused) v.pause();
+    });
+  }
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { seen.set(e.target, e.intersectionRatio >= 0.35); }); sync(); }, { threshold: [0, 0.35, 0.7] });
+  vids.forEach(function (v) { seen.set(v, false); io.observe(v); });
+  addEventListener('scroll', function () {
+    if (!scrolling) { scrolling = true; sync(); }
+    clearTimeout(idle);
+    idle = setTimeout(function () { scrolling = false; sync(); }, 200);
+  }, { passive: true });
+  document.addEventListener('visibilitychange', sync);
+})();
+</script>
 </body>
 </html>

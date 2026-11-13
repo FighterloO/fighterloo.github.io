@@ -13,7 +13,8 @@ img/moonhaven.webp         its poster
 img/head-*.webp            the header: the studio's worlds take turns behind the splash (warden-1/2: the game site's img/bg/features, planes; tower-1/2: Next Tower's town and a desert battle)
 img/banner.webp   background under the header: the YouTube banner without its text (preview/youtube/raw/yt-banner-3d.png)
 img/game-logo.webp         the Legacy of Warden card's logo (game site img/art/title-logo.webp)
-media/nexttower-loop.mp4   the Next Tower card's background: 10 s of reactions (Scalding Steam, Conduction, Frost Wall,
+media/nexttower-loop.mp4   the Next Tower card's background. Both card videos play only while on screen and rest during a scroll: the
+                           inline script at the end of index.html; two videos decoding while scrolling made the page stutter. The clip: 10 s of reactions (Scalding Steam, Conduction, Frost Wall,
                            Plasma Burst) cut from the English trailer at 18.25 s, 960x540 24 fps H.264 CRF 28, muted (14 Nov 2026)
 img/nexttower-poster.webp  its poster (the first frame)
 img/nt-logo.webp           the Next Tower card's title in Silkscreen, transparent, subtitle cropped off (13 Nov 2026)
