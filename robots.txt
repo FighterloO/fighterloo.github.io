@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://fighterloo.github.io/sitemap.xml
+Sitemap: https://fighterloo.github.io/next-tower-site/sitemap.xml
+Sitemap: https://fighterloo.github.io/legacy-of-warden-site/sitemap.xml

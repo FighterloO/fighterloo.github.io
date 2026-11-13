@@ -13,11 +13,14 @@ img/moonhaven.webp         its poster
 img/head-*.webp            the header: the studio's worlds take turns behind the splash (warden-1/2: the game site's img/bg/features, planes; tower-1/2: Next Tower's town and a desert battle)
 img/banner.webp   background under the header: the YouTube banner without its text (preview/youtube/raw/yt-banner-3d.png)
 img/game-logo.webp         the Legacy of Warden card's logo (game site img/art/title-logo.webp)
-img/nt-art.webp, img/nt-logo.webp       the Next Tower card (a Plane 2 battle capture; the title in Silkscreen, transparent)
+img/nt-art.webp, img/nt-logo.webp       the Next Tower card (a Plane 2 battle capture; the title in Silkscreen, transparent, subtitle cropped off 13 Nov 2026)
 img/share.jpg     1200x630 share image, made from the banner
-favicon.ico, favicon-48x48.png   the Assassin's head (legacy of warden preview/youtube/the assassin.png, cropped)
-favicon-192x192.png, apple-touch-icon.png, img/logo.png   the whole Assassin picture (logo.png = Organization logo)
-sitemap.xml       the studio page plus the game sites' pages (same host); robots.txt points to it
+favicon.ico, favicon-48x48/96x96/192x192.png, apple-touch-icon.png, icon-512.png, img/logo.png
+                  the studio mark: two crossed pixel swords on navy in a gold frame, drawn on a 24x24 grid and
+                  scaled x2/x4/x8 nearest (user pick, 13 Nov 2026); logo.png = Organization logo; site.webmanifest
+sitemap.xml       the studio page plus the game sites' pages (same host); robots.txt points to it and to each game
+                  site's own sitemap. Google shows one favicon per host in Search, so this icon is the one search
+                  results use for the game sites too.
 ```
 
 The game has its own site: https://fighterloo.github.io/legacy-of-warden-site/ (repo FighterloO/legacy-of-warden-site),
