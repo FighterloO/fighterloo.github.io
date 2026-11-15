@@ -85,8 +85,12 @@ video.game-bg{filter:none}
 .game-body>p:not(.game-tag){color:#cfc9dc;font-size:15px}
 .facts{list-style:none;padding:0;margin:2px 0 0;display:flex;flex-wrap:wrap;gap:6px}
 .facts li{padding:3px 10px;border:1px solid var(--line);background:rgba(12,10,20,.55);color:var(--mute);font-size:12px;font-weight:600;letter-spacing:.05em;border-radius:4px}
-.game-cta{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-@media (max-width:480px){.game-cta .btn{flex:1 1 100%}}
+/* the buttons on a tidy grid: two equal columns; with three, the first (the gold one) spans the row
+   and the other two sit under it; one column on a phone */
+.game-cta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;max-width:460px}
+.game-cta .btn{width:100%;padding:0 12px;text-align:center}
+.game-cta .btn:first-child:nth-last-child(odd){grid-column:1/-1}
+@media (max-width:480px){.game-cta{grid-template-columns:1fr;max-width:none}}
 
 /* Buttons: 1 px edges, no circles */
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border:1px solid var(--line-gold);background:rgba(12,10,20,.6);color:var(--gold-hi);font:600 15px var(--sans);text-decoration:none;border-radius:4px;touch-action:manipulation;transition:background .15s,border-color .15s}
